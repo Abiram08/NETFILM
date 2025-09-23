@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NetFlim - Watch Movies Online</title>
-  <link rel="stylesheet" href="css/Homepage.css">
+  <link rel="stylesheet" href="css/Homepage-clean.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
   <header>
     <div class="logo">NETFLIM</div>
@@ -21,7 +22,7 @@
 
   <main>
     <section class="hero">
-      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -29,24 +30,30 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="images/Dune.jpg" class="d-block w-100" alt="Dune">
+            <img src="images/Batman.jpg" class="d-block w-100" alt="Batman">
             <div class="carousel-caption d-none d-md-block">
+              <div class="metadata">Action / Thriller • 2022 • 2h 56m</div>
+              <h5>The Batman</h5>
+              <p>When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption and question his family's involvement.</p>
+              <button class="btn-watch">Watch now</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/BB.jpg" class="d-block w-100" alt="Breaking Bad">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="metadata">Crime / Drama • 2008-2013 • 5 Seasons</div>
+              <h5>Breaking Bad</h5>
+              <p>A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine to secure his family's future.</p>
+              <button class="btn-watch">Watch now</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="images/Dune2.jpg" class="d-block w-100" alt="Dune: Part Two">
+            <div class="carousel-caption d-none d-md-block">
+              <div class="metadata">Sci-Fi / Adventure • 2024 • 2h 46m</div>
               <h5>Dune: Part Two</h5>
-              <p>Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/The witcher (2).jpg" class="d-block w-100" alt="The Witcher">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>The Witcher</h5>
-              <p>Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/Demon Slayer.jpg" class="d-block w-100" alt="Demon Slayer">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Demon Slayer</h5>
-              <p>A young boy becomes a demon slayer to avenge his family and cure his sister.</p>
+              <p>Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family, facing a choice between love and the fate of the universe.</p>
+              <button class="btn-watch">Watch now</button>
             </div>
           </div>
         </div>
@@ -91,5 +98,23 @@
 
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Debug carousel initialization
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded');
+      const carousel = document.querySelector('#heroCarousel');
+      if (carousel) {
+        console.log('Carousel element found');
+        // Initialize Bootstrap carousel manually if needed
+        const bootstrapCarousel = new bootstrap.Carousel(carousel, {
+          interval: 2000,
+          ride: 'carousel'
+        });
+        console.log('Carousel initialized');
+      } else {
+        console.log('Carousel element not found');
+      }
+    });
+  </script>
 </body>
 </html>
