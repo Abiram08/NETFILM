@@ -1,0 +1,104 @@
+/* Basic styles */
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* Header (align with homepage fixed header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    color: #e50914;
+    font-weight: bold;
+}
+
+/* Let homepage nav spacing (gap) take effect; avoid custom left margins */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 0;
+}
+
+nav a:hover {
+    color: #e50914;
+}
+
+/* Signup form */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px); /* viewport minus header/footer breathing space */
+    padding: 20px;
+    margin-top: 100px; /* offset fixed header */
+}
+
+.signup-form {
+    background: white;
+    color: black;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    margin-bottom: 30px;
+    color: black;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.signup-form button {
+    width: 100%;
+    padding: 12px;
+    background: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background: #c40812;
+}
+
+.signup-form p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup-form a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.signup-form a:hover {
+    text-decoration: underline;
+}
