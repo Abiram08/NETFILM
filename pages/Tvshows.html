@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Shows - NetFlim</title>
+  <link rel="stylesheet" href="../css/Homepage.css">
+  <link rel="stylesheet" href="../css/Tvshows.css">
+</head>
+<body>
+  <header>
+    <div class="logo">NETFLIM</div>
+    <nav>
+      <a href="../Homepage.html">Home</a>
+      <a href="Movies.html">Movies</a>
+      <a href="Tvshows.html">TV Shows</a>
+      <a href="Anime.html">Anime</a>
+      <a href="Login.html">Login</a>
+      <a href="signup.html" class="signup-btn">Sign Up</a>
+    </nav>
+  </header>
+  <main>
+    <section class="shows-section">
+      <h1>Our TV Shows</h1>
+      <div class="show-grid">
+        <div class="show-card">
+          <img src="../images/The Boys.jpg" alt="The Boys">
+          <h3>The Boys</h3>
+          <p>2019 • Action</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/The witcher (2).jpg" alt="The Witcher">
+          <h3>The Witcher</h3>
+          <p>2019 • Fantasy</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/Breaking Bad.jpg" alt="Breaking Bad">
+          <h3>Breaking Bad</h3>
+          <p>2008 • Drama</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/The walking dead.jpg" alt="The Walking Dead">
+          <h3>The Walking Dead</h3>
+          <p>2010 • Horror</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/Peaky Blinders.jpg" alt="Peaky Blinders">
+          <h3>Peaky Blinders</h3>
+          <p>2013 • Crime</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/True Detective.jpg" alt="True Detective">
+          <h3>True Detective</h3>
+          <p>2014 • Mystery</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/Game of Thrones.jpg" alt="Game of Thrones">
+          <h3>Game of Thrones</h3>
+          <p>2011 • Fantasy</p>
+        </div>
+        <div class="show-card">
+          <img src="../images/The Sopranos.jpg" alt="The Sopranos">
+          <h3>The Sopranos</h3>
+          <p>1999 • Crime</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 NetFlim. All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  
+  <!-- Back to top button -->
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </a>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="../js/main.js"></script>
+  
+  <script>
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80, // Account for fixed header
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Show skeleton loading state
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('shows-container');
+      const skeletonLoader = container && container.querySelector('.skeleton-loader');
+      const searchInput = document.getElementById('show-search');
+      const filterButtons = document.querySelectorAll('.filter-options .btn');
+      const sortSelect = document.getElementById('sort-shows');
+      
+      // Generate skeleton cards if container exists
+      if (container && skeletonLoader) {
+        const skeletonCards = Array(12).fill(`
+          <div class="skeleton-card">
+            <div class="skeleton-poster"></div>
+            <div class="skeleton-details">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-meta"></div>
+            </div>
+          </div>
+        `).join('');
+        
+        skeletonLoader.innerHTML = skeletonCards;
+        
+        // Simulate loading delay (replace with actual data loading)
+        setTimeout(() => {
+          // Remove skeleton loader
+          skeletonLoader.remove();
+          
+          // Create show cards
+          const shows = [
+            {
+              id: 1,
+              title: 'The Boys',
+              image: '../images/The Boys.jpg',
+              year: '2019',
+              rating: '8.7',
+              categories: 'action, comedy',
+              synopsis: 'A group of vigilantes set out to take down corrupt superheroes who abuse their superpowers.'
+            },
+            {
+              id: 2,
+              title: 'Breaking Bad',
+              image: '../images/Breaking Bad.jpg',
+              year: '2008',
+              rating: '9.5',
+              categories: 'crime, drama, thriller',
+              synopsis: 'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine.'
+            },
+            {
+              id: 3,
+              title: 'The Witcher',
+              image: '../images/The witcher (2).jpg',
+              year: '2019',
+              rating: '8.2',
+              categories: 'fantasy, adventure',
+              synopsis: 'Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.'
+            },
+            {
+              id: 4,
+              title: 'Game of Thrones',
+              image: '../images/Game of Thrones.jpg',
+              year: '2011',
+              rating: '9.3',
+              categories: 'fantasy, drama',
+              synopsis: 'Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns.'
+            },
+            {
+              id: 5,
+              title: 'The Sopranos',
+              image: '../images/The Sopranos.jpg',
+              year: '1999',
+              rating: '9.2',
+              categories: 'crime, drama',
+              synopsis: 'New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life.'
+            }
+          ];
+          
+          // Generate show cards
+          const showCards = shows.map(show => `
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+              <article class="show-card h-100" data-category="${show.categories}" data-year="${show.year}" data-rating="${show.rating}">
+                <div class="show-poster">
+                  <img src="${show.image}" alt="${show.title} show poster" loading="lazy" class="img-fluid">
+                  <div class="show-overlay">
+                    <button class="play-btn" aria-label="Play ${show.title}"><i class="fas fa-play"></i></button>
+                    <button class="info-btn" aria-label="More info about ${show.title}"><i class="fas fa-info-circle"></i></button>
+                  </div>
+                </div>
+                <div class="show-details">
+                  <h3 class="show-title">${show.title}</h3>
+                  <div class="show-meta">
+                    <span class="year">${show.year}</span>
+                    <span class="rating"><i class="fas fa-star"></i> ${show.rating}</span>
+                  </div>
+                  <p class="show-synopsis d-none d-md-block">${show.synopsis}</p>
+                  <div class="show-actions">
+                    <button class="btn btn-sm btn-outline-light w-100">Watch Now</button>
+                    <button class="btn btn-sm btn-outline-secondary mt-2 w-100" aria-label="Add to watchlist">
+                      <i class="fas fa-plus me-1"></i> My List
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          `).join('');
+          
+          container.innerHTML = `<div class="row g-3">${showCards}</div>`;
+        }, 1500);
+      }
+    });
+  </script>
+</body>
+</html>
